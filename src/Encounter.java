@@ -8,7 +8,7 @@ public class Encounter {
     private Hero hero;
     private Scanner scnr = new Scanner(System.in);
     private Random rand = new Random();
-    private int counter = 2;
+    private int roundWEnemey = 2;
 
     public Encounter(Hero h, Enemy e, String bt){
         hero = h;
@@ -41,12 +41,12 @@ public class Encounter {
             int enemyDamage = attack(e1.getWeapon().getMaxDamage());
             hero.takeDamage(enemyDamage);
             System.out.println(e1.getName() + " takes a turn.");
-            System.out.println(e1.getName()+ " attacks "+ hero.getName() + " for " + enemyDamage + " damage.\n" +  '\n' + "---------Encounter " +  counter + "---------");
+            System.out.println(e1.getName()+ " attacks "+ hero.getName() + " for " + enemyDamage + " damage.\n" +  '\n' + "---------Round " +  roundWEnemey + " with " + e1.getName() + "---------");
             if (hero.isDead()){
                 System.out.println("You died! Game over!");
                 return false;
             }
-            counter++;
+            roundWEnemey++;
         }
         // following code should not be reachable
         return false;
@@ -90,6 +90,8 @@ public class Encounter {
 
     public Encounter bossEncounter(){
         // TODO: create this then call this method from campaign constructor
+        Weapon club = new Weapon ("fire",10);
+
         return null;
     }
 
