@@ -38,6 +38,7 @@ public class Encounter {
             System.out.println("You attack "+ e1.getName()+" for " + damage + " damage.");
             if (e1.isDead()){
                 System.out.println("Congratulations! You defeated " + e1.getName() + "!");
+                hero.restoreHealth();
                 return true;
             }
             int enemyDamage = attack(e1.getWeapon().getMaxDamage());
@@ -91,7 +92,6 @@ public class Encounter {
     }
 
     public static Encounter bossEncounter(Hero h){
-        // TODO: create this then call this method from campaign constructor
         Weapon fire = new Weapon ("fire",10);
         ArrayList<Item> drp = new ArrayList<>();
         drp.add(fire);

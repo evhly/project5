@@ -81,8 +81,8 @@ public class Hero extends Character {
         }
         // todo: increase health but not more than maxHealth
     }
-    public void restoreDamage(){
-        //TODO - less than maxHealth
+    public void restoreHealth(){
+        super.health = maxHealth - 5;
     }
 
 }
