@@ -80,7 +80,7 @@ public class Encounter {
         Weapon club = new Weapon("club", 4);
         ArrayList<Item> drp = new ArrayList<>();
         drp.add(club);
-        Enemy en = new Enemy(12, "Eric", "Toad",club,drp);
+        Enemy en = new Enemy(5, "Eric", "Toad",club,drp);
 
         String begTxt = "You begin your adventure. \nYou leave your town in search of the great dragon, Steve.\n"+
                 "But as you enter the woods you encounter your first enemy, Eric the Toad.\n";
@@ -91,8 +91,11 @@ public class Encounter {
     public Encounter bossEncounter(){
         // TODO: create this then call this method from campaign constructor
         Weapon club = new Weapon ("fire",10);
-
-        return null;
+        ArrayList<Item> drp = new ArrayList<>();
+        drp.add(club);
+        Enemy en = new Enemy(15, "Steve", "Dragon",club,drp);
+        String finalRText = "Congratulations! You have made it to the final round!! Your last opponent is Steve the Dragon! Good luck!!";
+        return new Encounter(hero,en, finalRText);
     }
 
 
