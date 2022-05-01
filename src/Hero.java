@@ -77,10 +77,12 @@ public class Hero extends Character {
 
     public void heal(int addedHealth) {
         if (!(super.getHealth() + addedHealth > maxHealth)){
-
+            super.health += addedHealth;
+        } else {
+            super.health = maxHealth;
         }
-        // todo: increase health but not more than maxHealth
     }
+
     public void restoreHealth(){
         super.health = maxHealth - 5;
     }
