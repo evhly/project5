@@ -8,6 +8,7 @@ public class Encounter {
     private Hero hero;
     private Scanner scnr = new Scanner(System.in);
     private Random rand = new Random();
+    private int counter = 2;
 
     public Encounter(Hero h, Enemy e, String bt){
         hero = h;
@@ -40,11 +41,12 @@ public class Encounter {
             int enemyDamage = attack(e1.getWeapon().getMaxDamage());
             hero.takeDamage(enemyDamage);
             System.out.println(e1.getName() + " takes a turn.");
-            System.out.println(e1.getName()+ " attacks "+ hero.getName() + " for " + enemyDamage + " damage.\n");
+            System.out.println(e1.getName()+ " attacks "+ hero.getName() + " for " + enemyDamage + " damage.\n" +  '\n' + "---------Encounter " +  counter + "---------");
             if (hero.isDead()){
                 System.out.println("You died! Game over!");
                 return false;
             }
+            counter++;
         }
         // following code should not be reachable
         return false;
@@ -79,6 +81,7 @@ public class Encounter {
         ArrayList<Item> drp = new ArrayList<>();
         drp.add(club);
         Enemy en = new Enemy(12, "Eric", "Toad",club,drp);
+
         String begTxt = "You begin your adventure. \nYou leave your town in search of the great dragon, Steve.\n"+
                 "But as you enter the woods you encounter your first enemy, Eric the Toad.\n";
         return new Encounter(h, en, begTxt);
