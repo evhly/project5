@@ -5,9 +5,9 @@ import java.util.Set;
 
 public class Hero extends Character {
     private ArrayList<Weapon> weapons; //weapons must be unique, so set
-    private Map<String,Integer> potions; //key, value  potion name, number of that kind
-    // healthPotion, 5   means 5 health potions
+    private Map<String,Integer> potions; //key, value -- potion name, number of that kind
     private String name;
+    private int maxHealth;
     private int baseStrength;
     private int strength;
     boolean strengthBoost;
@@ -27,12 +27,15 @@ public class Hero extends Character {
         name = n;
         strength = bs;
         baseStrength = bs;
+
+        maxHealth = h + 5;
         potions = new HashMap<>();
         weapons = new ArrayList<>();
         strengthBoost = false;
         weapons.add(new Weapon("Wooden Sword", 5));
+        potions.put("Health potion",2);    //hero starts with 2 health potions
 
-        //give hero one weapon and one potion to start - health is a potion
+
     }
 
     public String getName() {
@@ -54,6 +57,9 @@ public class Hero extends Character {
     //reset to base (What does this do?)
 
 
+//    public int getMaxHealth(){
+//        return maxHealth;
+//    }
 
     /**
      * provides an update on the hero's current stats
@@ -70,6 +76,9 @@ public class Hero extends Character {
     }
 
     public void heal(int addedHealth) {
+        if (!(super.getHealth() + addedHealth > maxHealth)){
+
+        }
         // todo: increase health but not more than maxHealth
     }
     public void restoreDamage(){

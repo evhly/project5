@@ -17,6 +17,10 @@ public abstract class Character {
         health = health - d;
      }
 
+    public int getHealth() {
+        return health;
+    }
+
     /**
      * @return true if the character is dead
      */

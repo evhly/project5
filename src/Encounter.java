@@ -26,12 +26,14 @@ public class Encounter {
             System.out.println(e1.getStats());
             System.out.println(hero.getName() + " what do you want to do?");
             System.out.println("Enter 1 to use weapon.");
-            int wChoice = scnr.nextInt();
+            int actionChoice = scnr.nextInt();
+            int damage = 0;
             // TODO: currently only one option for weapon---
-           // if (wChoice == 1){
-            //todo add to this number if strength potion is in effect
-            int damage = attack(hero.getWeapon(0).getMaxDamage()); //Todo ask which weopon
-           // }
+            if (actionChoice == 1){
+                damage = attack(hero.getWeapon(0).getMaxDamage()); //Todo ask which weopon  //todo add to this number if strength potion is in effect
+            } if(actionChoice == 2){
+                //use potion
+            }
             e1.takeDamage(damage);
             System.out.println("You attack "+ e1.getName()+" for " + damage + " damage.");
             if (e1.isDead()){
@@ -88,14 +90,14 @@ public class Encounter {
 
     }
 
-    public Encounter bossEncounter(){
+    public static Encounter bossEncounter(Hero h){
         // TODO: create this then call this method from campaign constructor
-        Weapon club = new Weapon ("fire",10);
+        Weapon fire = new Weapon ("fire",10);
         ArrayList<Item> drp = new ArrayList<>();
-        drp.add(club);
-        Enemy en = new Enemy(15, "Steve", "Dragon",club,drp);
+        drp.add(fire);
+        Enemy en = new Enemy(15, "Steve", "Dragon",fire,drp);
         String finalRText = "Congratulations! You have made it to the final round!! Your last opponent is Steve the Dragon! Good luck!!";
-        return new Encounter(hero,en, finalRText);
+        return new Encounter(h,en, finalRText);
     }
 
 
